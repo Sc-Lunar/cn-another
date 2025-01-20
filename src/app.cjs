@@ -29,8 +29,7 @@ const dbPromise = open({
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     downloadCount INTEGER DEFAULT 0,
     voteAverageScore REAL DEFAULT 0,
-    songInfo TEXT,
-    from TEXT
+    songInfo TEXT
   )`);
 
   await db.exec(`CREATE TABLE IF NOT EXISTS votes (
@@ -67,7 +66,6 @@ function transformContent(content) {
     date: new Date(content.date),
     downloadCount: Number(content.downloadCount),
     voteAverageScore: Number(content.voteAverageScore),
-    from: Number(content.from),
     songInfo: JSON.parse(content.songInfo || '{"difficulties":[0,0,0,0,0],"hasLua":false}')
   };
 }
