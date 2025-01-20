@@ -64,15 +64,17 @@ $(document).ready(function () {
     const searchTerm = $(this).val().toLowerCase();
 
     $('tbody tr').each(function () {
-      const from = $(this).find('td:nth-child(3)').text().toLowerCase();
-      const name = $(this).find('td:nth-child(4)').text().toLowerCase();
-      const publisher = $(this).find('td:nth-child(5)').text().toLowerCase();
-      const difficulty = $(this).find('td:nth-child(8)').text().toLowerCase();
+      const from = $(this).find('td:nth-child(2)').text().toLowerCase();
+      const name = $(this).find('td:nth-child(3)').text().toLowerCase();
+      const publisher = $(this).find('td:nth-child(4)').text().toLowerCase();
+      const description = $(this).find('td:nth-child(5)').text().toLowerCase();
+      const difficulty = $(this).find('td:nth-child(6)').text().toLowerCase();
       const all = $(this).find('td').text().toLowerCase();
       
       const match = (searchBy === 'all' && all.includes(searchTerm)) ||
                     (searchBy === 'from' && from.includes(searchTerm)) ||
                     (searchBy === 'name' && name.includes(searchTerm)) ||
+                    (searchBy === 'description' && description.includes(searchTerm)) ||
                     (searchBy === 'publisher' && publisher.includes(searchTerm)) ||
                     (searchBy === 'difficulty' && difficulty.includes(searchTerm));
 
