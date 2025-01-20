@@ -29,7 +29,8 @@ const dbPromise = open({
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     downloadCount INTEGER DEFAULT 0,
     voteAverageScore REAL DEFAULT 0,
-    songInfo TEXT
+    songInfo TEXT,
+    from TEXT
   )`);
 
   await db.exec(`CREATE TABLE IF NOT EXISTS votes (
@@ -58,8 +59,8 @@ function transformContent(content) {
   return {
     id: Number(content.id),
     contentType: Number(content.contentType),
-    from: content.from,
     title: content.title,
+    from: content.from,
     publisher: content.publisher,
     description: content.description,
     downloadUrl: content.downloadUrl,
@@ -67,6 +68,7 @@ function transformContent(content) {
     date: new Date(content.date),
     downloadCount: Number(content.downloadCount),
     voteAverageScore: Number(content.voteAverageScore),
+    from: Number(content.from),
     songInfo: JSON.parse(content.songInfo || '{"difficulties":[0,0,0,0,0],"hasLua":false}')
   };
 }
