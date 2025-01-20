@@ -47,12 +47,12 @@
       <% contents.forEach(content => { %>
        <tr>
         <td><%= content.contentType === 0 ? "自制谱(songs)" : content.contentType=== 1 ? "按键皮肤(NoteSkins)" : content.contentType === 2 ? "打击音效(SoundEffects)": content.contentType === 3 ? "全局脚本(GlobalLua)" : "未检测到(Unknown)" %></td>
-        <td><%= content.from %></td>
+        <td><% if (content.from == 0) { %>我不知道(Unknown)<% } else { %><%= content.from %><% }%></td>
         <td><%= content.title %></td>
         <td><%= content.publisher %></td>
         <td><%= content.description %></td>
         <td class="difficulty">
-         <span class="diff" id="diff-easy"><% if (content.songInfo.difficulties[1] === 0) { %>-<% } else if (content.songInfo.difficulties[1] === -1) { %>X<% } else { %><%= content.songInfo.difficulties[1] %><% } %></span>   
+         <span class="diff" id="diff-easy"><% if (content.songInfo.difficulties[0] === 0) { %>-<% } else if (content.songInfo.difficulties[0] === -1) { %>X<% } else { %><%= content.songInfo.difficulties[0] %><% } %></span>   
          <span class="diff" id="diff-normal"><% if (content.songInfo.difficulties[1] === 0) { %>-<% } else if (content.songInfo.difficulties[1] === -1) { %>X<% } else { %><%= content.songInfo.difficulties[1] %><% } %></span>
          <span class="diff" id="diff-hard"><% if (content.songInfo.difficulties[2] === 0) { %>-<% } else if (content.songInfo.difficulties[2] === -1) { %>X<% } else { %><%= content.songInfo.difficulties[2] %><% } %></span>
          <span class="diff" id="diff-extra"><% if (content.songInfo.difficulties[3] === 0) { %>-<% } else if (content.songInfo.difficulties[3] === -1) { %>X<% } else { %><%= content.songInfo.difficulties[3] %><% } %></span>
