@@ -58,6 +58,7 @@ function transformContent(content) {
   return {
     id: Number(content.id),
     contentType: Number(content.contentType),
+    from: content.from,
     title: content.title,
     publisher: content.publisher,
     description: content.description,
