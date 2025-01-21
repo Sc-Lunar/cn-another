@@ -46,7 +46,7 @@
      <tbody>
       <% contents.forEach(content => { %>
        <tr>
-        <td><%= content.contentType === 0 ? "自制谱(songs)" : content.contentType=== 1 ? "按键皮肤(NoteSkins)" : content.contentType === 2 ? "打击音效(SoundEffects)": content.contentType === 3 ? "全局脚本(GlobalLua)" : content.contentType === 4 ? "模拟器(DankagLike)" : "未检测到(Unknown)" %></td>
+        <td><%= content.contentType === 0 ? "自制谱(songs)" : content.contentType=== 1 ? "按键皮肤(NoteSkins)" : content.contentType === 2 ? "打击音效(SoundEffects)": content.contentType === 3 ? "全局脚本(GlobalLua)" : content.contentType === 4 ? "模拟器(DankagLike)" : content.contentType === 5 ? "视频(Video)" : "未检测到(Unknown)" %></td>
         <td><% if (content.from == 0) { %>我不知道(Unknown)<% } else { %><%= content.from %><% }%></td>
         <td><%= content.title %></td>
         <td><%= content.publisher %></td>
@@ -60,9 +60,9 @@
          <span class="diff" id="diff-lunatic"><% if (content.songInfo.difficulties[4] === 0) { %>-<% } else if (content.songInfo.difficulties[4] === -1) { %>X<% } else{ %><%= content.songInfo.difficulties[4] %><% } %></span>
         </td>
         <% } else { %> <td><p class="text-unavailable">-</p></td> <% } %>
-        <% if (content.downloadUrl === 0) { %>
-         <td><p class="text-unavailable">-</p></td> 
-         <% } else { %> <td><button class="button btn-download is-link"onclick="window.open('<%= content.downloadUrl %>')">Download</button></td>  <% } %> 
+        <% if (content.downloadUrl == 0) { %> <td><p class="text-unavailable">Not Release</p></td> <% } 
+         else if (content.contentType === 5) { %> <td><button class="button btn-download is-link"onclick="window.open('<%= content.downloadUrl %>')">Watching</button></td>  <% } 
+         else { %> <td><button class="button btn-download is-link"onclick="window.open('<%= content.downloadUrl %>')">Download</button></td>  <% } %> 
         <td><%= content.password %></td>
        </tr>
       <% }); %>
