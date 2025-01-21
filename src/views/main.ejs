@@ -61,10 +61,8 @@
         </td>
         <% } else { %> <td><p class="text-unavailable">-</p></td> <% } %>
         <% if (content.downloadUrl === 0) { %>
-           <td><p class="text-unavailable">-</p></td> 
-          <% } else  
-       { %> <td><button class="button btn-download is-link"onclick="window.open('<%= content.downloadUrl %>')">Download</button></td>  <% } %> 
-         
+         <td><p class="text-unavailable">-</p></td> 
+         <% } else  { %> <td><button class="button btn-download is-link"onclick="window.open('<%= content.downloadUrl %>')">Download</button></td>  <% } %> 
         <td><%= content.password %></td>
        </tr>
       <% }); %>
