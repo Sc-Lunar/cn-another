@@ -60,7 +60,9 @@
          <span class="diff" id="diff-lunatic"><% if (content.songInfo.difficulties[4] === 0) { %>-<% } else if (content.songInfo.difficulties[4] === -1) { %>X<% } else{ %><%= content.songInfo.difficulties[4] %><% } %></span>
         </td>
         <% } else { %> <td><p class="text-unavailable">-</p></td> <% } %>
-        <td><button class="button btn-download is-link"onclick="window.location.href='<%= content.downloadUrl %>'">Download</button></td>
+        <% if (content.downloadUrl === 0) { %>
+         <td><p class="text-unavailable">-</p></td> 
+         <% } else { %> <td><button class="button btn-download is-link"onclick="window.open('<%= content.downloadUrl %>')">Download</button></td>  <% } %> 
         <td><%= content.password %></td>
        </tr>
       <% }); %>
