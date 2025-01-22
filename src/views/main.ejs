@@ -46,7 +46,7 @@
      <tbody>
       <% contents.forEach(content => { %>
        <tr>
-        <td><%= content.contentType === 0 ? "自制谱(songs)" : content.contentType=== 1 ? "按键皮肤(NoteSkins)" : content.contentType === 2 ? "打击音效(SoundEffects)": content.contentType === 3 ? "全局脚本(GlobalLua)" : content.contentType === 4 ? "模拟器(DankagLike)" : content.contentType === 5 ? "视频(Video)" : "未检测到(Unknown)" %></td>
+        <td><%= content.contentType === 0 ? "自制谱(songs)" : content.contentType=== 1 ? "按键皮肤(NoteSkins)" : content.contentType === 2 ? "打击音效(SoundEffects)": content.contentType === 3 ? "全局脚本(GlobalLua)" : content.contentType === 4 ? "模拟器(DankagLike)" : content.contentType === 5 ? "视频(Video)" : "已删除(Deleted)" %></td>
         <td><% if (content.from == 0) { %>我不知道(Unknown)<% } else { %><%= content.from %><% }%></td>
         <td><%= content.title %></td>
         <td><%= content.publisher %></td>
