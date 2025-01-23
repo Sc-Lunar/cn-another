@@ -29,6 +29,21 @@
   <div class="bgimg"></div>   
   <input type="text" id="search" class="input mb-4" placeholder="点这搜索...(Search for an item...)"/>
   <p id="resultCount">Searched <%= contents.length %> result(s)</p>
+   <div class="pagination is-centered" role="navigation" aria-label="pagination" >
+    <% if (currentPage > 1) { %> <a class="pagination-previous" href="?page=<%= currentPage - 1 %>" >上一页(Previous)</a> <% } 
+       else { %> <a class="pagination-previous" disabled>上一页(Previous)</a> <% } %> <% 
+       if (currentPage < totalPages) { %> <a class="pagination-next" href="?page=<%= currentPage + 1 %>">下一页(Next)</a> <% } 
+       else { %> <a class="pagination-next" disabled>下一页(Next)</a> <% } %>
+    <ul class="pagination-list">
+     <li><a class="pagination-link <%= currentPage === 1 ? 'is-current' : '' %>" href="?page=1" >1</a></li>
+     <% if (totalPages > 2) { %>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li><input type="number" class="input pagination-input" value="<%= currentPage %>" min="1" max="<%= totalPages %>" onkeydown="if(event.key === 'Enter') window.location.href='?page=' + this.value" /></li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li> <% } %> 
+     <% if (totalPages >= 2) { %>
+      <li><a class="pagination-link <%= currentPage === totalPages ? 'is-current' : '' %>" href="?page=<%= totalPages %>"><%= totalPages %></a></li> <% } %>
+    </ul>
+   </div>
    <div class="table-wrapper">
     <table class="table is-striped is-fullwidth">
      <thead>
@@ -46,7 +61,7 @@
      <tbody>
       <% contents.forEach(content => { %>
        <tr>
-        <td><%= content.contentType === 0 ? "自制谱(songs)" : content.contentType=== 1 ? "按键皮肤(NoteSkins)" : content.contentType === 2 ? "打击音效(SoundEffects)": content.contentType === 3 ? "全局脚本(GlobalLua)" : content.contentType === 4 ? "模拟器(DankagLike)" : content.contentType === 5 ? "视频(Video)" : "已删除(Deleted)" %></td>
+        <td><%= content.contentType === 0 ? "自制谱(songs)" : content.contentType=== 1 ? "按键皮肤(NoteSkins)" : content.contentType === 2 ? "打击音效(SoundEffects)": content.contentType === 3 ? "全局脚本(GlobalLua)" : content.contentType === 4 ? "软件(Software)" : content.contentType === 5 ? "视频(Video)" : "已删除(Deleted)" %></td>
         <td><%= content.from %></td>
         <td><%= content.title %></td>
         <td><%= content.publisher %></td>
@@ -65,10 +80,39 @@
          else { %> <td><button class="button btn-download is-link"onclick="window.open('<%= content.downloadUrl %>')">Download</button></td>  <% } %> 
         <td><%= content.password %></td>
        </tr>
-      <% }); %>
+      <% }); %> 
      </tbody>
     </table>
    </div>
+   <div class="pagination is-centered" role="navigation" aria-label="pagination" >
+    <% if (currentPage > 1) { %> <a class="pagination-previous" href="?page=<%= currentPage - 1 %>" >上一页(Previous)</a> <% } 
+       else { %> <a class="pagination-previous" disabled>上一页(Previous)</a> <% } %> <% 
+       if (currentPage < totalPages) { %> <a class="pagination-next" href="?page=<%= currentPage + 1 %>">下一页(Next)</a> <% } 
+       else { %> <a class="pagination-next" disabled>下一页(Next)</a> <% } %>
+    <ul class="pagination-list">
+     <li><a class="pagination-link <%= currentPage === 1 ? 'is-current' : '' %>" href="?page=1" >1</a></li>
+     <% if (totalPages > 2) { %>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li><input type="number" class="input pagination-input" value="<%= currentPage %>" min="1" max="<%= totalPages %>" onkeydown="if(event.key === 'Enter') window.location.href='?page=' + this.value" /></li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li> <% } %> 
+     <% if (totalPages >= 2) { %>
+      <li><a class="pagination-link <%= currentPage === totalPages ? 'is-current' : '' %>" href="?page=<%= totalPages %>"><%= totalPages %></a></li> <% } %>
+    </ul>
+  </div>
+  <div class="table-wrapper">
+   <table class="table is-striped is-fullwidth">
+    <tbody> 
+     <td>模拟器相关链接<br>(DankagLike)</td>
+     <td><button class="button btn-download is-link"onclick="window.open('https://wwdk.lanzouu.com/iA29P2lhu90f')">DankagLike-1.1.8<br>(#83)(安卓.apk)</button></td>
+     <td><button class="button btn-download is-link"onclick="window.open('https://wwdk.lanzouu.com/ir31b2ls3vsj')">DankagLike-1.1.8<br>(#83)(苹果.ipa)</button></td>
+     <td><button class="button btn-download is-link"onclick="window.open('https://wwdk.lanzouu.com/iWQ3L2lhu8ba')">DankagLikeNoteEditor<br>(v1.78-3)(制谱器.exe)</button></td>
+     <td><button class="button btn-download is-link"onclick="window.open('https://wwdk.lanzouu.com/iA13y2lhu7ve')">DankagLikeNotePreview<br>(v1.59-2)(播放器.exe)</button></td>
+    </tbody>
+    <tbody>
+     <td>提取码</td><td>8p5z</td> <td>47se</td> <td>1bbw</td> <td>bvbh</td>
+    </tbody>
+   </table>
+  </div>   
   </div>
   <script src="./main.js"></script>
  </body>
