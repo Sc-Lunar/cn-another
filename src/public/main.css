@@ -166,6 +166,47 @@ th.sortable.sorted-desc .sort-arrow {
   }
 }
 
+.pagination {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+.pagination-previous {
+  background-color: #fff;
+  }
+
+.pagination-next {
+  background-color: #fff;
+  }
+
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .title-tools {
+    margin-bottom: 25px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .title-tools {
     display: flex;
